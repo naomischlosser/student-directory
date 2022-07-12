@@ -6,7 +6,7 @@ def input_students
   name = gets.chomp.capitalize
 
   while !name.empty? do
-    students << {name: name, cohort: :november}
+    students << {name: name, cohort: :november, country_of_birth: :netherlands}
     puts "Now we have #{students.count} students"
     name = gets.chomp.capitalize
   end
@@ -23,7 +23,7 @@ def print(names)
   x = 0
 
   while x < names.length
-    puts "#{x + 1}. #{names[x][:name]} (#{names[x][:cohort]} cohort)"
+    puts "#{x + 1}. #{names[x][:name]} (#{names[x][:cohort]} cohort) (#{names[x][:country_of_birth]})"
      x += 1
   end
 end
