@@ -19,12 +19,9 @@ def print_header
   puts "-------------"
 end
 
-def print(names)
-  puts "Please enter the initial you would like to search for"
-  letter = gets.chomp.capitalize
-  
+def print(names)  
   names.each_with_index do |name, i|
-    if name[:name][0] == letter
+    if name[:name].size < 12
       puts "#{i + 1}. #{name[:name]} (#{name[:cohort]} cohort)"
     end
   end
