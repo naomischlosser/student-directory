@@ -1,14 +1,29 @@
 def input_students
-  puts "Please enter the names of the students"
-  puts "To finish, just hit return twice"
+  puts "NOTE - To finish, type 'stop'"
 
   students = []
-  name = gets.chomp.capitalize
 
-  while !name.empty? do
-    students << {name: name, cohort: :november, country_of_birth: :netherlands}
+  while true do
+    puts "Please enter the name of a student."
+    name = gets.chomp
+
+    if name == "stop" 
+      break
+    elsif name.empty?
+      name = "placeholder"
+    end
+
+    puts "Please enter the cohort of a student."
+    cohort = gets.chomp
+
+    if cohort == "stop" 
+      break
+    elsif cohort.empty?
+      cohort = "placeholder"
+    end
+
+    students << {name: name, cohort: cohort.to_sym, country_of_birth: :netherlands}
     puts "Now we have #{students.count} students"
-    name = gets.chomp.capitalize
   end
 
   students
