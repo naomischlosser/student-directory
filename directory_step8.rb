@@ -19,11 +19,12 @@ def print_header
   puts "-------------"
 end
 
-def print(names)  
-  names.each_with_index do |name, i|
-    if name[:name].size < 12
-      puts "#{i + 1}. #{name[:name]} (#{name[:cohort]} cohort)"
-    end
+def print(names)
+  x = 0
+
+  while x < names.length
+    puts "#{x + 1}. #{names[x][:name]} (#{names[x][:cohort]} cohort)"
+     x += 1
   end
 end
 
