@@ -3,12 +3,12 @@ def input_students
   puts "To finish, just hit return twice"
 
   students = []
-  name = gets.chomp
+  name = gets.chomp.capitalize
 
   while !name.empty? do
     students << {name: name, cohort: :november}
     puts "Now we have #{students.count} students"
-    name = gets.chomp
+    name = gets.chomp.capitalize
   end
 
   students
@@ -20,8 +20,13 @@ def print_header
 end
 
 def print(names)
+  puts "Please enter the initial you would like to search for"
+  letter = gets.chomp.capitalize
+  
   names.each_with_index do |name, i|
-    puts "#{i + 1}. #{name[:name]} (#{name[:cohort]} cohort)"
+    if name[:name][0] == letter
+      puts "#{i + 1}. #{name[:name]} (#{name[:cohort]} cohort)"
+    end
   end
 end
 
