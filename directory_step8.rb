@@ -23,8 +23,8 @@ def print(names)
   x = 0
 
   while x < names.length
-    puts "#{x + 1}. #{names[x][:name]} (#{names[x][:cohort]} cohort) (#{names[x][:country_of_birth]})"
-     x += 1
+    puts "#{x + 1}." + "#{names[x][:name]}".center(20) + "(#{names[x][:cohort]} cohort)".center(20) + "(#{names[x][:country_of_birth]})".center(20)
+    x += 1
   end
 end
 
