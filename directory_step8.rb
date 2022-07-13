@@ -42,10 +42,15 @@ def print_header
 end
 
 def print(names)
-  x = 0
+  puts "What cohort would you like to print?"
+  input = gets.chomp
 
-  while x < names.length
-    puts "#{x + 1}." + "#{names[x][:name]}".center(20) + "(#{names[x][:cohort]} cohort)".center(20) + "(#{names[x][:country_of_birth]})".center(20)
+  x = 1
+
+  names.each do |name|
+    if input.to_sym == name[:cohort]
+    puts "#{x}." + "#{name[:name]}".center(20) + "(#{name[:cohort]} cohort)".center(20) + "(#{name[:country_of_birth]})".center(20)
+    end
     x += 1
   end
 end
