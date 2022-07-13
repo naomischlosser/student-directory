@@ -1,65 +1,30 @@
-input = gets.delete("\n")
-p input
-
-=begin
 def input_students
-  puts "Please enter the name and cohort of the students seperated by a comma, e.g. 'Sarah Allen, January'"
-  puts "If you made a mistake, please enter 'typo' to go again"
+  puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
-
+  # create an empty array
   students = []
-  input = gets.chomp.split(",")
-
-  while !input.empty? do
-    name = input[0]
-    cohort = input[1]
-
-    if name.empty?
-      puts "No name has been given and 'placeholder' is added instead"
-      name = "placeholder"
-    end
-
-    if cohort.nil?
-      puts "No cohort has been given and 'placeholder' is added instead"
-      cohort = "placeholder"
-    else
-      cohort.strip!
-    end
-
-    students << {name: name, cohort: cohort.to_sym, country_of_birth: :netherlands}
-    if students.count == 1
-      puts "Now we have #{students.count} student"
-    else
-      puts "Now we have #{students.count} students"
-    end
-
-    input = gets.chomp.split(",")
-
-    if input[0] == "typo"
-      students.pop
-      input = gets.chomp.split(",")
-    end
+  # get the first name
+  name = gets.chomp
+  # while the name is not empty, repeat this code
+  while !name.empty? do
+  # add the student hash to the array
+  students << {name: name, cohort: :november}
+  puts "Now we have #{students.count} students"
+  # get another name from the user
+  name = gets.chomp
   end
-
+  # return the array of students
   students
 end
 
 def print_header
-  puts "The students of Villains Academy"
+  puts "The students of my cohort at Makers Academy"
   puts "-------------"
 end
 
-def print(names)
-  puts "What cohort would you like to print?"
-  input = gets.chomp
-
-  x = 1
-
-  names.each do |name|
-    if input.to_sym == name[:cohort]
-    puts "#{x}." + "#{name[:name]}".center(20) + "(#{name[:cohort]} cohort)".center(20) + "(#{name[:country_of_birth]})".center(20)
-    end
-    x += 1
+def print(students)
+  students.each do |student|
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 
@@ -67,8 +32,8 @@ def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
 
+
 students = input_students
 print_header
 print(students)
 print_footer(students)
-=end
