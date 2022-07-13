@@ -1,3 +1,7 @@
+input = gets.delete("\n")
+p input
+
+=begin
 def input_students
   puts "Please enter the name and cohort of the students seperated by a comma, e.g. 'Sarah Allen, January'"
   puts "If you made a mistake, please enter 'typo' to go again"
@@ -67,3 +71,4 @@ students = input_students
 print_header
 print(students)
 print_footer(students)
+=end
