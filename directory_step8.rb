@@ -23,7 +23,11 @@ def input_students
     end
 
     students << {name: name, cohort: cohort.to_sym, country_of_birth: :netherlands}
-    puts "Now we have #{students.count} students"
+    if students.count == 1
+      puts "Now we have #{students.count} student"
+    else
+      puts "Now we have #{students.count} students"
+    end
 
     input = gets.chomp.split(",")
 
