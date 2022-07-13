@@ -1,29 +1,36 @@
 def input_students
-  puts "NOTE - To finish, type 'stop'"
+  puts "Please enter the name and cohort of the students seperated by a comma, e.g. 'Sarah Allen, January'"
+  puts "If you made a mistake, please enter 'typo' to go again"
+  puts "To finish, just hit return twice"
 
   students = []
+  input = gets.chomp.split(",")
 
-  while true do
-    puts "Please enter the name of a student."
-    name = gets.chomp
+  while !input.empty? do
+    name = input[0]
+    cohort = input[1]
 
-    if name == "stop" 
-      break
-    elsif name.empty?
+    if name.empty?
+      puts "No name has been given and 'placeholder' is added instead"
       name = "placeholder"
     end
 
-    puts "Please enter the cohort of a student."
-    cohort = gets.chomp
-
-    if cohort == "stop" 
-      break
-    elsif cohort.empty?
+    if cohort.nil?
+      puts "No cohort has been given and 'placeholder' is added instead"
       cohort = "placeholder"
+    else
+      cohort.strip!
     end
 
     students << {name: name, cohort: cohort.to_sym, country_of_birth: :netherlands}
     puts "Now we have #{students.count} students"
+
+    input = gets.chomp.split(",")
+
+    if input[0] == "typo"
+      students.pop
+      input = gets.chomp.split(",")
+    end
   end
 
   students
